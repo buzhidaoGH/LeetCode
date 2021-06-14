@@ -49,19 +49,36 @@
 // 👍 1528 👎 0
 
 package cn;
-class PalindromeNumber{
-    public static void main(String[] args) {
-        Solution solution = new PalindromeNumber().new Solution();
-        
-	}
-	
-    //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
-    public boolean isPalindrome(int x) {
 
-        return false;
-    }
-}
+class PalindromeNumber {
+	public static void main(String[] args) {
+		Solution solution = new PalindromeNumber().new Solution();
+		boolean palindrome = solution.isPalindrome(100);
+		System.out.println(palindrome);
+	}
+
+	//leetcode submit region begin(Prohibit modification and deletion)
+	class Solution {
+		public boolean isPalindrome(int x) {
+			//判断是否大于0,大于0返回true继续判断
+			//小于0必定不是回文数,直接返回false
+			int ans = 0;
+			int x1 = x;
+			boolean flag = x >= 0;
+			if (flag) {
+				// 个人对回文数的定义为翻转过来,值依然相等
+				while (x != 0) {
+					if (ans != (ans * 10) / 10) {
+						return false;
+					}
+					ans = ans * 10 + x % 10;
+					x /= 10;
+				}
+				return ans == x1 ;
+			}
+			return flag;
+		}
+	}
 //leetcode submit region end(Prohibit modification and deletion)
 
 }
